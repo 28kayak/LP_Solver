@@ -1,0 +1,20 @@
+Objective Function
+	z = total sale value 
+Decisition vaiable 
+	c1 = the number of model 1 produced 
+	c2 = the number of model 2 produced
+
+Therefore, 
+	z = 120 * the number of model 1 produced + 80 * the number of model 2 produced 
+	  = 120 * c1 + 80 + c2 
+
+Constraints 
+	availability for wood: 2c1 + c2 <= 6
+	availability for time: 7c1 + 8c2 <= 28
+
+
+Our Model:
+	maximaize z 
+	subject to 
+		 2c1 + c2 <= 6
+		 7c1 + 8c2 <= 28
