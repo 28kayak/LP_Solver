@@ -9,11 +9,15 @@ add.constraint(lps.model, c(2,1), "<=",6)
 add.constraint(lps.model, c(7,8), "<=",28)
 #constrains for non-negativity
 #add.constrain(lps.model,c(1,0), ">=" 0)
+
+#set objective direction
 lp.control(lps.model,sense='max')
+
+
 #Now Solve
 #see if there is solution
 write.lp(lps.model,'model.lp',type='lp')
-solve(lps.model)
+solution_existene <- solve(lps.model)
 #solve(model_name) will return status value:
 #0:  "optimal solution found"                                                         
 #1:  "the model is sub-optimal"                                                       
@@ -29,6 +33,17 @@ solve(lps.model)
 #12:  "a feasible branch and bound solution was found"                                 
 #13:  "no feasible branch and bound solution was found"    
 
+ 
 #in this case, return 0, which means "optimal solution found"
-get.objective(lps.model)
-get.variables(lps.model)
+solution_value <- get.objective(lps.model)
+solution_variables <- get.variables(lps.model)
+constraints_values <- get.constraints(lps.model)
+print("Solution_Info",quote=F)
+print("solution existence if 0, then exist",quote=F)
+solution_existene 
+print("Optimal value",quote=F)
+solution_value
+print("varibles_values",quote=F)
+solution_variables
+print("constraint values",quote=F)
+constraints_values
